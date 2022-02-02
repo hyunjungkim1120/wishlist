@@ -7,8 +7,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class SearchLocalReq {
     private String query = "";
     private int display = 1;
@@ -18,8 +18,8 @@ public class SearchLocalReq {
     public MultiValueMap<String, String> toMultiValueMap() {
         var map = new LinkedMultiValueMap<String, String>();
         map.add("query", query);
-        map.add("start", String.valueOf(display));
         map.add("display", String.valueOf(display));
+        map.add("start", String.valueOf(start));
         map.add("sort", sort);
 
         return map;

@@ -6,9 +6,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 public class SearchLocalRes {
     private String lastBuildDate;
     private int total;
@@ -17,16 +17,16 @@ public class SearchLocalRes {
     private List<SearchLocalItem> items;
 
     @Data
-    @AllArgsConstructor
     @NoArgsConstructor
+    @AllArgsConstructor
     public static class SearchLocalItem {
         private String title;
         private String link;
+        private String category;
         private String description;
         private String telephone;
         private String address;
         private String roadAddress;
-        private String category;
         private int mapx;
         private int mapy;
     }

@@ -16,25 +16,28 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @Component
 public class NaverClient {
-
     @Value("${naver.client.id}")
     private String naverClientId;
+
     @Value("${naver.client.secret}")
-    private String naverSecret;
+    private String naverClientSecret;
+
     @Value("${naver.url.search.local}")
-    private String naverLocalSeachUrl;
+    private String naverLocalSearchUrl;
+
     @Value("${naver.url.search.image}")
     private String naverImageSearchUrl;
 
     public SearchLocalRes searchLocal(SearchLocalReq searchLocalReq) {
-        var uri = UriComponentsBuilder.fromUriString(naverLocalSeachUrl)
+        var uri = UriComponentsBuilder.fromUriString(naverLocalSearchUrl)
                 .queryParams(searchLocalReq.toMultiValueMap())
                 .build()
                 .encode()
                 .toUri();
+
         var headers = new HttpHeaders();
         headers.set("X-Naver-Client-Id", naverClientId);
-        headers.set("X-Naver-Client-Secret", naverSecret);
+        headers.set("X-Naver-Client-Secret", naverClientSecret);
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         var httpEntity = new HttpEntity<>(headers);
@@ -56,9 +59,10 @@ public class NaverClient {
                 .build()
                 .encode()
                 .toUri();
+
         var headers = new HttpHeaders();
         headers.set("X-Naver-Client-Id", naverClientId);
-        headers.set("X-Naver-Client-Secret", naverSecret);
+        headers.set("X-Naver-Client-Secret", naverClientSecret);
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         var httpEntity = new HttpEntity<>(headers);
@@ -72,6 +76,5 @@ public class NaverClient {
         );
 
         return responseEntity.getBody();
-
     }
 }

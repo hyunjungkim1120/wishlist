@@ -19,14 +19,17 @@ public class WishListService {
         searchLocalReq.setQuery(query);
 
         var searchLocalRes = naverClient.searchLocal(searchLocalReq);
-        //이미지 검색
+
         if (searchLocalRes.getTotal() > 0) {
             var localItem = searchLocalRes.getItems().stream().findFirst().get();
-            var imageQuery = localItem.getTitle().replaceAll("<[^>]*>","");
+
+            var imageQuery = localItem.getTitle().replaceAll("<[^>]*>", "");
             var searchImageReq = new SearchImageReq();
             searchImageReq.setQuery(imageQuery);
 
+            //이미지 검색
             var searchImageRes = naverClient.searchImage(searchImageReq);
+
             if (searchImageRes.getTotal() > 0) {
                 var imageItem = searchImageRes.getItems().stream().findFirst().get();
 
@@ -35,7 +38,7 @@ public class WishListService {
                 result.setTitle(localItem.getTitle());
                 result.setCategory(localItem.getCategory());
                 result.setAddress(localItem.getAddress());
-                result.setReadAddress(localItem.getRoadAddress());
+                result.setRoadAddress(localItem.getRoadAddress());
                 result.setHomePageLink(localItem.getLink());
                 result.setImageLink(imageItem.getLink());
 

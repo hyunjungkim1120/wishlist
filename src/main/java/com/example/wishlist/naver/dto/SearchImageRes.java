@@ -6,20 +6,19 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 public class SearchImageRes {
     private String lastBuildDate;
     private int total;
     private int start;
     private int display;
-    private String category;
     private List<SearchImageItem> items;
 
     @Data
-    @AllArgsConstructor
     @NoArgsConstructor
+    @AllArgsConstructor
     public static class SearchImageItem {
         private String title;
         private String link;

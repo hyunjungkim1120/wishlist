@@ -1,15 +1,15 @@
 package com.example.wishlist.restaurant.entity;
 
 import com.example.wishlist.db.MemoryDbEntity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
 public class WishListEntity extends MemoryDbEntity {
 
     private String title;                   //음식명

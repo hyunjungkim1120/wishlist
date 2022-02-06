@@ -61,8 +61,6 @@ public class WishListService {
     }
 
     private WishListEntity dtoToEntity(WishListDto wishListDto) {
-
-
         var entity = new WishListEntity();
         entity.setIndex(wishListDto.getIndex());
         entity.setTitle(wishListDto.getTitle());
@@ -79,7 +77,6 @@ public class WishListService {
     }
 
     private WishListDto entityToDto(WishListEntity wishListEntity) {
-
         var dto = new WishListDto();
         dto.setIndex(wishListEntity.getIndex());
         dto.setTitle(wishListEntity.getTitle());
@@ -108,8 +105,8 @@ public class WishListService {
 
     public void addVisit(int index) {
         var wishItem = wishListRepository.findById(index);
-        if (wishItem.isPresent()) {
-            var item = wishItem.get();
+        if(wishItem.isPresent()) {
+            var item  = wishItem.get();
             item.setVisit(true);
             item.setVisitCount(item.getVisitCount()+1);
         }

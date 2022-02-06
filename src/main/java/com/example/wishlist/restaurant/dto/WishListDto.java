@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Data
 public class WishListDto extends MemoryDbEntity {
-    private int index;
+    private Integer index;
     private String title;                   //음식명
     private String category;                //카테고리
     private String address;                 //주소

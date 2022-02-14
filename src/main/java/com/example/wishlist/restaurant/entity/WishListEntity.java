@@ -3,6 +3,7 @@ package com.example.wishlist.restaurant.entity;
 import com.example.wishlist.db.MemoryDbEntity;
 import lombok.*;
 
+import javax.persistence.Entity;
 import java.time.LocalDate;
 
 @NoArgsConstructor
@@ -10,6 +11,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @ToString
+@Entity
 public class WishListEntity extends MemoryDbEntity {
 
     private String title;                   //음식명
